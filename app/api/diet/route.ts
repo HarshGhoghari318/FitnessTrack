@@ -1,8 +1,5 @@
 // app/api/diet/route.ts
-import { NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY!);
 
 export async function POST(req: Request) {
   try {
@@ -32,14 +29,14 @@ Include breakfast, lunch, dinner with high-protein meals and calorie estimates.
     console.log(text)
 
     return new Response(JSON.stringify({ text }), { status: 200 });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Gemini API Error:", error);
 
     // Custom error message
     return new Response(
       JSON.stringify({
         error: "Gemini API is currently unavailable or overloaded. Please try again later.",
-        details: error?.message || "Unknown error",
+  details: typeof error === 'object' && error !== null && 'message' in error ? (error as { message: string }).message : "Unknown error",
       }),
       { status: 503 }
     );

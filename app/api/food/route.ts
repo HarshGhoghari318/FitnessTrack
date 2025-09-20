@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function GET(req:NextRequest){
-    const data=await prisma.food.findMany()
-    return (NextResponse.json({data}))
+export async function GET(){
+  const data=await prisma.food.findMany()
+  return (NextResponse.json({data}))
 }
