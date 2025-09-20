@@ -1,51 +1,121 @@
+"use client";
+
 import prisma from "@/prismaProvider";
+import { motion } from "framer-motion";
+
+type WorkoutPlan = {
+  id: number;
+  day: string;
+  type: string;
+  muscles: string[];
+};
+
+const fallbackPlans: WorkoutPlan[] = [
+  {
+    id: 1,
+    day: "Monday",
+    type: "Push",
+    muscles: ["chest", "shoulders", "triceps"],
+  },
+  {
+    id: 2,
+    day: "Tuesday",
+    type: "Pull",
+    muscles: ["back", "biceps"],
+  },
+  {
+    id: 3,
+    day: "Wednesday",
+    type: "Legs",
+    muscles: ["legs"],
+  },
+  {
+    id: 4,
+    day: "Thursday",
+    type: "Push",
+    muscles: ["chest", "shoulders", "triceps"],
+  },
+  {
+    id: 5,
+    day: "Friday",
+    type: "Pull",
+    muscles: ["back", "biceps"],
+  },
+  {
+    id: 6,
+    day: "Saturday",
+    type: "Legs",
+    muscles: ["legs"],
+  },
+  {
+    id: 7,
+    day: "Sunday",
+    type: "Rest",
+    muscles: [],
+  },
+];
 
 export default async function TracksPage() {
-  const plans = await prisma.workoutPlan.findMany({
-    orderBy: { id: "asc" },
-  });
+  let plans: WorkoutPlan[] = [];
+  try {
+    plans = await prisma.workoutPlan.findMany({
+      orderBy: { id: "asc" },
+    });
+  } catch {
+    plans = [];
+  }
+  if (!plans || plans.length === 0) {
+    plans = fallbackPlans;
+  }
 
   return (
-    <div
-      className="min-h-screen bg-[url('/images/fitness-bg.jpg')] bg-cover bg-center text-white"
-    >
+    <main className="min-h-screen bg-cover bg-center text-white relative" style={{backgroundImage: "url('/images/fitness-bg.jpg')"}}>
       {/* Overlay */}
-      <div className="min-h-screen bg-black/60 p-6">
-        <div className="max-w-5xl mx-auto">
-          <h1 className="text-4xl font-bold text-center text-white mb-10">
-            🏋️ Weekly Workout Plan
-          </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {plans.map((plan) => (
-              <div
-                key={plan.id}
-                className="bg-white/90 text-black border border-blue-200 rounded-xl p-5 shadow hover:shadow-lg transition"
-              >
-                <h2 className="text-2xl font-bold text-blue-600 mb-1">{plan.day}</h2>
-                <p className="text-sm text-gray-700 mb-3">
-                  <span className="font-semibold">Type:</span> {plan.type}
-                </p>
-                <div>
-                  <p className="text-sm font-semibold text-gray-800 mb-1">Muscle Groups:</p>
-                  <ul className="list-disc list-inside text-gray-800 text-sm">
-                    {plan.muscles.length > 0 ? (
-                      plan.muscles.map((muscle, index) => (
-                        <li key={index}>
-                          <a href={`/workouts/${muscle}`} className="text-blue-700 underline">
-                            {muscle}
-                          </a>
-                        </li>
-                      ))
-                    ) : (
-                      <li className="italic text-gray-500">Rest day</li>
-                    )}
-                  </ul>
-                </div>
+      <div className="absolute inset-0 bg-black opacity-70 z-0" />
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-10">
+        <motion.h1
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-4xl md:text-5xl font-extrabold text-purple-400 text-center mb-10 drop-shadow-lg"
+        >
+          🏋️ Weekly Workout Plan
+        </motion.h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+          {plans.map((plan: WorkoutPlan, idx: number) => (
+            <motion.div
+              key={plan.day + '-' + plan.type}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 + idx * 0.08, duration: 0.6 }}
+              className="backdrop-blur-lg bg-white/10 border border-purple-500 rounded-2xl p-6 shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 flex flex-col items-center"
+            >
+              <h2 className="text-2xl font-bold text-purple-300 mb-2 tracking-wide drop-shadow">
+                {plan.day}
+              </h2>
+              <span className="inline-block bg-purple-500/80 text-white text-xs font-semibold px-3 py-1 rounded-full mb-3 shadow">
+                {plan.type}
+              </span>
+              <div className="w-full">
+                <p className="text-sm font-semibold text-gray-200 mb-2 text-center">Muscle Groups:</p>
+                <ul className="list-disc list-inside text-gray-100 text-sm mb-2">
+                  {plan.muscles.length > 0 ? (
+                    plan.muscles.map((muscle: string, index: number) => (
+                      <li key={muscle + '-' + index} className="mb-1">
+                        <a href={`/workouts/${muscle}`} className="text-purple-300 underline hover:text-purple-400 transition">
+                          {muscle.charAt(0).toUpperCase() + muscle.slice(1)}
+                        </a>
+                      </li>
+                    ))
+                  ) : (
+                    <li className="italic text-gray-400">Rest day</li>
+                  )}
+                </ul>
               </div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 }

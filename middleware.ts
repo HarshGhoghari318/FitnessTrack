@@ -14,9 +14,9 @@ export default withAuth(
 
 export const config = {
     matcher: [
-        '/profile/',
-        '/workouts/:path*',
-        '/nutritions',
-        '/tracks'
+        // '/profile/',
+        // '/workouts/:path*',
+        // '/nutritions',
+        // '/tracks'
     ],
 }

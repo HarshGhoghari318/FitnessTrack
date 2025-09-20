@@ -4,6 +4,7 @@ import { signIn, useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
+import { LucideDumbbell } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
@@ -75,11 +76,16 @@ export default function SignupPage() {
           {error}
         </div>
       )}
-      <main className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center px-4 py-8">
-        <div className="w-full max-w-lg p-8 bg-gray-900 rounded-2xl shadow-2xl border border-gray-700">
-          <h1 className="text-3xl font-extrabold text-center text-purple-400 mb-6">
-            Create Your Account
-          </h1>
+  <main className="min-h-screen bg-gradient-to-br from-gray-950 to-gray-900 flex items-center justify-center px-4 py-8">
+        <div className="w-full max-w-lg p-8 rounded-3xl shadow-2xl border-2 border-purple-800 backdrop-blur-md bg-gray-950/80">
+          <div className="flex flex-col items-center mb-6">
+            <span className="animate-spin-slow mb-2">
+              <LucideDumbbell size={40} className="text-purple-400 drop-shadow" />
+            </span>
+            <h1 className="text-3xl font-extrabold text-center text-purple-400">
+              Create Your Account
+            </h1>
+          </div>
 
           <div className="space-y-4">
             <input
@@ -87,13 +93,13 @@ export default function SignupPage() {
               placeholder="Full Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-3 rounded-md bg-gray-800 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-3 rounded-lg bg-gray-900 text-white placeholder-purple-300 border border-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-400 transition"
             />
 
             <select
               value={gender}
               onChange={(e) => setGender(e.target.value)}
-              className="w-full px-4 py-3 rounded-md bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-3 rounded-lg bg-gray-900 text-white border border-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-400 transition"
             >
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -104,7 +110,7 @@ export default function SignupPage() {
               placeholder="Age"
               value={age}
               onChange={(e) => setAge(Number(e.target.value))}
-              className="w-full px-4 py-3 rounded-md bg-gray-800 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-3 rounded-lg bg-gray-900 text-white placeholder-purple-300 border border-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-400 transition"
             />
 
             <input
@@ -112,7 +118,7 @@ export default function SignupPage() {
               placeholder="Weight (kg) — Optional"
               value={weight}
               onChange={(e) => setWeight(Number(e.target.value))}
-              className="w-full px-4 py-3 rounded-md bg-gray-800 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-3 rounded-lg bg-gray-900 text-white placeholder-purple-300 border border-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-400 transition"
             />
 
             <input
@@ -120,7 +126,7 @@ export default function SignupPage() {
               placeholder="Height (cm) — Optional"
               value={height}
               onChange={(e) => setHeight(Number(e.target.value))}
-              className="w-full px-4 py-3 rounded-md bg-gray-800 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-3 rounded-lg bg-gray-900 text-white placeholder-purple-300 border border-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-400 transition"
             />
 
             <input
@@ -128,7 +134,7 @@ export default function SignupPage() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 rounded-md bg-gray-800 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-3 rounded-lg bg-gray-900 text-white placeholder-purple-300 border border-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-400 transition"
             />
 
             <input
@@ -136,26 +142,35 @@ export default function SignupPage() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 rounded-md bg-gray-800 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-3 rounded-lg bg-gray-900 text-white placeholder-purple-300 border border-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-400 transition"
             />
 
             <button
               onClick={handleSignup}
-              className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-md transition duration-300 flex items-center justify-center gap-2"
+              className="w-full py-3 bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white font-bold rounded-lg transition duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-purple-700/40"
             >
               <MdEmail className="text-xl" />
               Sign Up with Email
             </button>
 
-            <div className="text-center text-gray-400">or</div>
+            <div className="text-center text-purple-300">or</div>
 
             <button
               onClick={() => signIn('google', { callbackUrl: '/profile' })}
-              className="w-full py-3 bg-white hover:bg-gray-100 text-black font-bold rounded-md transition duration-300 flex items-center justify-center gap-2"
+              className="w-full py-3 bg-white hover:bg-purple-100 text-purple-700 font-bold rounded-lg transition duration-300 flex items-center justify-center gap-2 shadow-lg"
             >
               <FaGoogle className="text-xl text-red-500" />
               Continue with Google
             </button>
+          </div>
+          <div className="text-center mt-4">
+            <span className="text-gray-400">Already have an account?</span>
+            <a
+              href="/signin"
+              className="ml-2 text-purple-400 hover:text-purple-300 font-semibold underline transition"
+            >
+              Sign in
+            </a>
           </div>
         </div>
       </main>
