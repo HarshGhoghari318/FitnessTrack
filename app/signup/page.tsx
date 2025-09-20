@@ -1,7 +1,7 @@
 'use client';
 
-import { signIn, useSession } from 'next-auth/react';
-import { useEffect, useState } from 'react';
+import { signIn } from 'next-auth/react';
+import { useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { LucideDumbbell } from 'lucide-react';
@@ -59,7 +59,7 @@ export default function SignupPage() {
           router.push('/profile');
         }
       }
-    } catch (error) {
+    } catch (_error) {
       alert("An error occurred during signup");
     }
   };

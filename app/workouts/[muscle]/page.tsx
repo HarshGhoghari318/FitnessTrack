@@ -1,7 +1,7 @@
 
 
 import BackButton from "@/component/Button";
-import axios from "axios";
+
 
 
 type Exercise = {
