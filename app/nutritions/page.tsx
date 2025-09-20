@@ -206,6 +206,7 @@ export default function NutritionPage() {
       setDiet(res.data.text);
       console.log(diet)
     } catch (error) {
+      console.log(error)
       alert("Something went wrong....");
       setShowDiet(false);
     }
