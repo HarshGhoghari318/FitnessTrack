@@ -56,7 +56,7 @@ export default function SignupPage() {
           setError('Account created but login failed. Please try logging in.');
           router.push('/login');
         } else {
-          router.push('/profile');
+          router.push('/');
         }
       }
     } catch (error) {

@@ -21,8 +21,127 @@ type Food = {
   photo: string;
 };
 
-export default function NutritionPage() {
-  const fallbackFoods: Food[] = [
+const fallbackFoods: Food[] = [
+  {
+    food: "Brown Rice",
+    calories: 123,
+    serving_size_g: 100,
+    fat_total_g: 1,
+    fat_saturated_g: 0.2,
+    protein_g: 2.7,
+    sodium_mg: 5,
+    potassium_mg: 86,
+    cholesterol_mg: 0,
+    carbohydrates_total_g: 25.6,
+    fiber_g: 1.8,
+    sugar_g: 0.4,
+    photo: "https://images.unsplash.com/photo-1613728913341-8f29b02b8253?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJvd24lMjByaWNlfGVufDB8fDB8fHww",
+  },
+  {
+    food: "Oats",
+    calories: 389,
+    serving_size_g: 100,
+    fat_total_g: 6.9,
+    fat_saturated_g: 1.2,
+    protein_g: 16.9,
+    sodium_mg: 2,
+    potassium_mg: 429,
+    cholesterol_mg: 0,
+    carbohydrates_total_g: 66.3,
+    fiber_g: 10.6,
+    sugar_g: 0.9,
+    photo: "https://images.unsplash.com/photo-1614373532018-92a75430a0da?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8T2F0c3xlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    food: "Banana",
+    calories: 89,
+    serving_size_g: 100,
+    fat_total_g: 0.3,
+    fat_saturated_g: 0.1,
+    protein_g: 1.1,
+    sodium_mg: 1,
+    potassium_mg: 358,
+    cholesterol_mg: 0,
+    carbohydrates_total_g: 22.8,
+    fiber_g: 2.6,
+    sugar_g: 12.2,
+    photo: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8QmFuYW5hfGVufDB8fDB8fHww",
+  },
+  {
+    food: "Apple",
+    calories: 52,
+    serving_size_g: 100,
+    fat_total_g: 0.2,
+    fat_saturated_g: 0,
+    protein_g: 0.3,
+    sodium_mg: 1,
+    potassium_mg: 107,
+    cholesterol_mg: 0,
+    carbohydrates_total_g: 13.8,
+    fiber_g: 2.4,
+    sugar_g: 10.4,
+    photo: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    food: "Almonds",
+    calories: 579,
+    serving_size_g: 100,
+    fat_total_g: 49.9,
+    fat_saturated_g: 3.8,
+    protein_g: 21.2,
+    sodium_mg: 1,
+    potassium_mg: 733,
+    cholesterol_mg: 0,
+    carbohydrates_total_g: 21.6,
+    fiber_g: 12.5,
+    sugar_g: 4.4,
+    photo: "https://images.unsplash.com/photo-1598373182133-52452f7691ef?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    food: "Peanut Butter",
+    calories: 588,
+    serving_size_g: 100,
+    fat_total_g: 50,
+    fat_saturated_g: 10,
+    protein_g: 25,
+    sodium_mg: 17,
+    potassium_mg: 649,
+    cholesterol_mg: 0,
+    carbohydrates_total_g: 20,
+    fiber_g: 6,
+    sugar_g: 9,
+    photo: "https://images.unsplash.com/photo-1615110250484-e8c3b151b957?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UGVhbnV0JTIwQnV0dGVyfGVufDB8fDB8fHww",
+  },
+  {
+    food: "Broccoli",
+    calories: 34,
+    serving_size_g: 100,
+    fat_total_g: 0.4,
+    fat_saturated_g: 0.1,
+    protein_g: 2.8,
+    sodium_mg: 33,
+    potassium_mg: 316,
+    cholesterol_mg: 0,
+    carbohydrates_total_g: 6.6,
+    fiber_g: 2.6,
+    sugar_g: 1.7,
+    photo: "https://images.unsplash.com/photo-1685504445355-0e7bdf90d415?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QnJvY2NvbGl8ZW58MHx8MHx8fDA%3D",
+  },
+  {
+    food: "Sweet Potato",
+    calories: 86,
+    serving_size_g: 100,
+    fat_total_g: 0.1,
+    fat_saturated_g: 0,
+    protein_g: 1.6,
+    sodium_mg: 55,
+    potassium_mg: 337,
+    cholesterol_mg: 0,
+    carbohydrates_total_g: 20.1,
+    fiber_g: 3,
+    sugar_g: 4.2,
+    photo: "https://images.unsplash.com/photo-1570723735746-c9bd51bd7c40?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U3dlZXQlMjBQb3RhdG98ZW58MHx8MHx8fDA%3D",
+  },
     {
       food: "Chicken Breast",
       calories: 165,
@@ -51,7 +170,7 @@ export default function NutritionPage() {
       carbohydrates_total_g: 1.1,
       fiber_g: 0,
       sugar_g: 1.1,
-      photo: "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80",
+      photo: "https://images.unsplash.com/photo-1617611647086-bccca8c2cf84?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGVnZ3xlbnwwfHwwfHx8MA%3D%3D",
     },
     {
       food: "Greek Yogurt",
@@ -81,7 +200,7 @@ export default function NutritionPage() {
       carbohydrates_total_g: 20,
       fiber_g: 8,
       sugar_g: 1.8,
-      photo: "https://images.unsplash.com/photo-1464306076886-debede6bbf94?auto=format&fit=crop&w=400&q=80",
+      photo: "https://images.unsplash.com/photo-1552585960-0e1069ce7405?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TGVudGlsc3xlbnwwfHwwfHx8MA%3D%3D",
     },
     {
       food: "Salmon",
@@ -96,7 +215,7 @@ export default function NutritionPage() {
       carbohydrates_total_g: 0,
       fiber_g: 0,
       sugar_g: 0,
-      photo: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",
+      photo: "https://images.unsplash.com/photo-1499125562588-29fb8a56b5d5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U2FsbW9ufGVufDB8fDB8fHww",
     },
     {
       food: "Tofu",
@@ -111,7 +230,7 @@ export default function NutritionPage() {
       carbohydrates_total_g: 1.9,
       fiber_g: 0.3,
       sugar_g: 0.6,
-      photo: "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80",
+      photo: "https://images.unsplash.com/photo-1722635940350-d1b2e5129379?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9mdXxlbnwwfHwwfHx8MA%3D%3D",
     },
     {
       food: "Cottage Cheese",
@@ -126,7 +245,7 @@ export default function NutritionPage() {
       carbohydrates_total_g: 3.4,
       fiber_g: 0,
       sugar_g: 2.7,
-      photo: "https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=400&q=80",
+      photo: "https://images.unsplash.com/photo-1573810655264-8d1e50f1592d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Q290dGFnZSUyMENoZWVzZXxlbnwwfHwwfHx8MA%3D%3D",
     },
     {
       food: "Quinoa",
@@ -141,7 +260,7 @@ export default function NutritionPage() {
       carbohydrates_total_g: 21,
       fiber_g: 2.8,
       sugar_g: 0.9,
-      photo: "https://images.unsplash.com/photo-1464306076886-debede6bbf94?auto=format&fit=crop&w=400&q=80",
+      photo: "https://images.unsplash.com/photo-1615865417491-9941019fbc00?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cXVpbm9hfGVufDB8fDB8fHww",
     },
     {
       food: "Tuna",
@@ -156,9 +275,14 @@ export default function NutritionPage() {
       carbohydrates_total_g: 0,
       fiber_g: 0,
       sugar_g: 0,
-      photo: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",
+      photo: "https://images.unsplash.com/photo-1691120217303-dfc557ff9c4c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dHVuYXxlbnwwfHwwfHx8MA%3D%3D",
     },
-  ];
+];
+
+
+
+export default function NutritionPage() {
+  
   const [foods, setFoods] = useState<Food[]>([]);
   const [showDiet, setShowDiet] = useState(false);
   const [height, setHeight] = useState("");
@@ -169,29 +293,30 @@ export default function NutritionPage() {
   const [loading, setLoading] = useState(true);
   const [diet, setDiet] = useState("");
 
-  useEffect(() => {
-    const fetchFoods = async () => {
-      try {
-        const response = await axios.get("/api/food");
-        const foodList = Array.isArray(response.data)
-          ? response.data
-          : response.data.data;
+ useEffect(() => {
+//     const fetchFoods = async () => {
+//       try {
+//         const response = await axios.get("/api/food");
+//         const foodList = Array.isArray(response.data)
+//           ? response.data
+//           : response.data.data;
 
-        if (Array.isArray(foodList) && foodList.length > 0) {
-          setFoods(foodList);
-        } else {
-          setFoods(fallbackFoods);
-        }
-      } catch (error) {
-        console.error("Error fetching food data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+//         if (Array.isArray(foodList) && foodList.length > 0) {
+//           setFoods(foodList);
+//         } else {
+//           setFoods(fallbackFoods); // ✅ safe now
+//         }
+//       } catch (error) {
+//         console.error("Error fetching food data:", error);
+//         setFoods(fallbackFoods); // fallback here too
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
 
-    fetchFoods();
+//     fetchFoods();
+ setFoods(fallbackFoods);
   }, []);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setShowDiet(true);
@@ -202,9 +327,8 @@ export default function NutritionPage() {
         age,
         goal,
       });
-      console.log(res.data)
-      setDiet(res.data.text);
-      console.log(diet)
+      console.log(res)
+      setDiet(res.data.response);
     } catch (error) {
       console.log(error)
       alert("Something went wrong....");
@@ -236,11 +360,11 @@ export default function NutritionPage() {
       </div>
 
       {/* Food Grid */}
-      {loading ? (
+      {/* {loading ? (
         <div className="flex justify-center items-center py-20">
           <div className="w-12 h-12 border-4 border-[#5c7a5c] border-dashed rounded-full animate-spin"></div>
         </div>
-      ) : (
+      ) : ( */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {foods.map((food, index) => (
             <motion.div
@@ -276,7 +400,7 @@ export default function NutritionPage() {
             </motion.div>
           ))}
         </div>
-      )}
+      {/* )} */}
 
       {/* Diet Modal */}
       {showDiet && (

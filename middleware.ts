@@ -13,10 +13,8 @@ export default withAuth(
 )
 
 export const config = {
-    matcher: [
-        // '/profile/',
-        // '/workouts/:path*',
-        // '/nutritions',
-        // '/tracks'
-    ],
-}
+  matcher: [
+    "/workouts/:path*",   // protects /workouts & /workouts/[muscle]
+    "/nutritions",        // protects /nutritions
+  ],
+};

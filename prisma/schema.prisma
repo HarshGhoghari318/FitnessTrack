@@ -29,30 +29,7 @@ model User {
   createdAt DateTime @default(now())
 }
 
-model Food {
-  id                      Int     @id @default(autoincrement())
-  food                    String  @unique
-  calories                Float
-  serving_size_g          Float
-  fat_total_g             Float
-  fat_saturated_g         Float
-  protein_g               Float
-  sodium_mg               Float
-  potassium_mg            Float
-  cholesterol_mg          Float?
-  carbohydrates_total_g   Float?
-  fiber_g                 Float?
-  sugar_g                 Float?
-  photo                   String
-  createdAt               DateTime @default(now())
-  updatedAt               DateTime @updatedAt
-}
 
-model WorkoutPlan {
-  id        Int     @id @default(autoincrement())
-  day       String
-  type      String
-  muscles   String[]  // e.g., ["chest", "triceps", "shoulders"]
-  createdAt DateTime   @default(now())
-}
+
+
 

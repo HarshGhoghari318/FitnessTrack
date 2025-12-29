@@ -24,7 +24,7 @@ export default function LoginPage() {
     console.error('Login failed:', result.error);
     alert('Login failed. Please check your credentials.');
   } else {
-    router.push("/profile")
+    router.push("/")
   }
 };
 

@@ -1,7 +1,51 @@
-// app/api/diet/route.ts
-import { GoogleGenerativeAI } from "@google/generative-ai";
+// // app/api/diet/route.ts
+// import { GoogleGenerativeAI } from "@google/generative-ai";
 
-export async function POST(req: Request) {
+// export async function POST(req: Request) {
+//   try {
+//     const { age, height, weight, goal } = await req.json();
+
+//     const prompt = `
+// Generate a 1-day personalized diet plan for:
+// - Age: ${age}
+// - Height: ${height} cm
+// - Weight: ${weight} kg
+// - Goal: ${goal}
+
+// Include breakfast, lunch, and dinner with high-protein meals and calorie estimates.
+// `;
+
+//     const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY!);
+
+//     const model = genAI.getGenerativeModel({
+//       model: "gemini-1.5-flash-latest", // ✅ CORRECT
+//     });
+
+//     const result = await model.generateContent(prompt);
+//     const text = result.response.text();
+
+//     return new Response(JSON.stringify({ text }), { status: 200 });
+//   } catch (error) {
+//     console.error("Gemini API Error:", error);
+
+//     return new Response(
+//       JSON.stringify({
+//         error:
+//           "Gemini API is currently unavailable or overloaded. Please try again later.",
+//         details:
+//           error instanceof Error ? error.message : "Unknown error",
+//       }),
+//       { status: 503 }
+//     );
+//   }
+// }
+import {GoogleGenAI} from '@google/genai';
+import { NextResponse } from 'next/server';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
+const ai = new GoogleGenAI({apiKey: GEMINI_API_KEY});
+
+export async function POST (req: Request)  {
   try {
     const { age, height, weight, goal } = await req.json();
 
@@ -12,33 +56,28 @@ Generate a 1-day personalized diet plan for:
 - Weight: ${weight} kg
 - Goal: ${goal}
 
-Include breakfast, lunch, dinner with high-protein meals and calorie estimates.
+Include breakfast, lunch, and dinner with high-protein meals and calorie estimates.
 `;
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.5-flash',
+    contents: prompt,
+  });
+  // console.log(response.text);
 
-   
-    const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY!);
+  return new NextResponse(JSON.stringify({ response:response.text }), { status: 200 });
 
-    const model = genAI.getGenerativeModel({
-      model: "models/gemini-1.5-flash-002",
-    });
-
-    
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
-    console.log(text)
-
-    return new Response(JSON.stringify({ text }), { status: 200 });
-  } catch (error) {
+  }catch (error) {
     console.error("Gemini API Error:", error);
 
-    // Custom error message
     return new Response(
       JSON.stringify({
-        error: "Gemini API is currently unavailable or overloaded. Please try again later.",
-  details: typeof error === 'object' && error !== null && 'message' in error ? (error as { message: string }).message : "Unknown error",
+        error:
+          "Gemini API is currently unavailable or overloaded. Please try again later.",
+        details:
+          error instanceof Error ? error.message : "Unknown error",
       }),
       { status: 503 }
     );
   }
-  }
+}
+
