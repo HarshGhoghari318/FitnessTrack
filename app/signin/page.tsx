@@ -62,15 +62,7 @@ export default function LoginPage() {
           Sign In with Email
         </button>
 
-        <div className="text-center text-purple-300">or</div>
-
-        <button
-          onClick={async () => await signIn('google', { callbackUrl: '/' })}
-          className="w-full py-3 bg-white hover:bg-purple-100 text-purple-700 font-bold rounded-lg transition duration-300 flex items-center justify-center gap-2 shadow-lg"
-        >
-          <FaGoogle className="text-xl text-red-500" />
-          Continue with Google
-        </button>
+        
         <div className="text-center mt-4">
           <span className="text-gray-400">Don&apos;t have an account?</span>
           <a
