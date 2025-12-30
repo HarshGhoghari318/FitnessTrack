@@ -290,31 +290,11 @@ export default function NutritionPage() {
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [goal, setGoal] = useState("Weight loss");
-  const [loading, setLoading] = useState(true);
+ 
   const [diet, setDiet] = useState("");
 
  useEffect(() => {
-//     const fetchFoods = async () => {
-//       try {
-//         const response = await axios.get("/api/food");
-//         const foodList = Array.isArray(response.data)
-//           ? response.data
-//           : response.data.data;
-
-//         if (Array.isArray(foodList) && foodList.length > 0) {
-//           setFoods(foodList);
-//         } else {
-//           setFoods(fallbackFoods); // ✅ safe now
-//         }
-//       } catch (error) {
-//         console.error("Error fetching food data:", error);
-//         setFoods(fallbackFoods); // fallback here too
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchFoods();
+//    
  setFoods(fallbackFoods);
   }, []);
   const handleSubmit = async (e: React.FormEvent) => {
