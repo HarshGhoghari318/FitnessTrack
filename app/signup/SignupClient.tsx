@@ -54,7 +54,7 @@ export default function SignupPage() {
 
         if (result?.error) {
           setError('Account created but login failed. Please try logging in.');
-          router.push('/login');
+          router.push('/');
         } else {
           router.push('/');
         }
@@ -157,7 +157,7 @@ export default function SignupPage() {
             <div className="text-center text-purple-300">or</div>
 
             <button
-              onClick={() => signIn('google', { callbackUrl: '/profile' })}
+              onClick={() => signIn('google', { callbackUrl: '/' })}
               className="w-full py-3 bg-white hover:bg-purple-100 text-purple-700 font-bold rounded-lg transition duration-300 flex items-center justify-center gap-2 shadow-lg"
             >
               <FaGoogle className="text-xl text-red-500" />

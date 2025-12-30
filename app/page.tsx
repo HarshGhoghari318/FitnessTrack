@@ -66,26 +66,22 @@ export default function HomePage() {
           {[
             {
               icon: "🏋️‍♂️",
-              path: "/workouts",
               title: "Dynamic Workouts",
               desc: "Routines designed for all levels — beginner to advanced — with real results.",
             },
             {
-              icon: "🥗",
-              path: "/nutrition", // fixed typo
+              icon: "🥗", // fixed typo
               title: "Goal-Based Nutrition",
               desc: "Smart meal plans to support your muscle gain or fat loss journey.",
             },
             {
               icon: "📊",
-              path: "/tracks",
               title: "Visual Progress Tracking",
               desc: "Log workouts, track calories, and see your body transform.",
             },
           ].map((item, i) => (
             <motion.a
               key={i}
-              href={item.path}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
