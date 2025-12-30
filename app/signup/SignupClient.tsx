@@ -2,7 +2,7 @@
 
 import { signIn } from 'next-auth/react';
 import { useState } from 'react';
-import { FaGoogle } from 'react-icons/fa';
+
 import { MdEmail } from 'react-icons/md';
 import { LucideDumbbell } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
@@ -154,15 +154,7 @@ export default function SignupPage() {
               Sign Up with Email
             </button>
 
-            <div className="text-center text-purple-300">or</div>
-
-            <button
-              onClick={() => signIn('google', { callbackUrl: '/' })}
-              className="w-full py-3 bg-white hover:bg-purple-100 text-purple-700 font-bold rounded-lg transition duration-300 flex items-center justify-center gap-2 shadow-lg"
-            >
-              <FaGoogle className="text-xl text-red-500" />
-              Continue with Google
-            </button>
+            
           </div>
           <div className="text-center mt-4">
             <span className="text-gray-400">Already have an account?</span>
