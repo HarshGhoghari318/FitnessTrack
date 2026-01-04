@@ -111,7 +111,7 @@ export default function HomePage() {
           Ready to Change Your Life?
         </h2>
         <p className="text-gray-400 mb-6 text-sm sm:text-base">
-          "Because fitness should be free for all."
+           &quot;Because fitness should be free for all.&quot;
         </p>
         <motion.a
           href="/guide"
@@ -119,7 +119,7 @@ export default function HomePage() {
           whileTap={{ scale: 0.95 }}
           className="bg-purple-500 hover:bg-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition inline-block"
         >
-          Let's Begin
+         Let&apos;s Begin
         </motion.a>
       </motion.section>
     </main>
