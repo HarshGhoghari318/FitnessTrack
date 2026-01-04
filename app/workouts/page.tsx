@@ -66,10 +66,10 @@ const TracksPage = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-70 z-0" />
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-10">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-purple-400 text-center mb-10 drop-shadow-lg">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-purple-400 text-center mb-8 sm:mb-10 drop-shadow-lg">
           🏋️ Weekly Workout Plan
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl">
           {plans.map((plan: WorkoutPlan) => (
             <div
               key={plan.day + '-' + plan.type}

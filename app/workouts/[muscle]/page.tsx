@@ -225,7 +225,7 @@ export default async function MuscleExercisesPage({
       <div className="absolute inset-0 bg-black opacity-70 z-0" />
       <div className="relative z-10 px-6 py-10">
         <BackButton />
-        <h1 className="text-4xl font-extrabold mb-8 capitalize text-center text-purple-400 drop-shadow-lg">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-8 capitalize text-center text-purple-400 drop-shadow-lg px-4">
           {muscle.replace("_", " ")} Exercises
         </h1>
 

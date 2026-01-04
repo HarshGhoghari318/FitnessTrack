@@ -30,12 +30,12 @@ export default function HomePage() {
           <p className="text-lg md:text-xl text-gray-300 mb-6">
             A complete platform for workouts, nutrition, and progress tracking. Your transformation starts today.
           </p>
-          <div className="space-x-4">
+          <div className="flex flex-col sm:flex-row gap-4 sm:space-x-4 sm:gap-0">
             <motion.a
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
               href="/workouts"
-              className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition"
+              className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition text-center"
             >
               Start Workout
             </motion.a>
@@ -43,7 +43,7 @@ export default function HomePage() {
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
               href="/signup"
-              className="border border-purple-400 text-purple-400 hover:bg-purple-500 hover:text-white px-6 py-3 rounded-lg font-semibold transition"
+              className="border border-purple-400 text-purple-400 hover:bg-purple-500 hover:text-white px-6 py-3 rounded-lg font-semibold transition text-center"
             >
               Join Now
             </motion.a>
@@ -57,12 +57,12 @@ export default function HomePage() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="py-20 bg-gray-900"
+        className="py-12 sm:py-20 bg-gray-900"
       >
-        <h2 className="text-3xl font-bold text-center text-purple-300 mb-12">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center text-purple-300 mb-8 sm:mb-12 px-4">
           What Makes Us Different?
         </h2>
-        <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto px-4">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-3 max-w-6xl mx-auto px-4">
           {[
             {
               icon: "🏋️‍♂️",
@@ -86,14 +86,14 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
-              className="bg-gray-800 border border-purple-400 p-6 rounded-xl shadow-lg hover:shadow-purple-400/40 transition"
+              className="bg-gray-800 border border-purple-400 p-5 sm:p-6 rounded-xl shadow-lg hover:shadow-purple-400/40 transition"
               whileHover={{ scale: 1.05, boxShadow: "0 0 24px #a78bfa" }}
             >
-              <div className="text-4xl mb-4">{item.icon}</div>
-              <h3 className="text-xl font-bold text-purple-300 mb-2">
+              <div className="text-3xl sm:text-4xl mb-4">{item.icon}</div>
+              <h3 className="text-lg sm:text-xl font-bold text-purple-300 mb-2">
                 {item.title}
               </h3>
-              <p className="text-gray-300">{item.desc}</p>
+              <p className="text-sm sm:text-base text-gray-300">{item.desc}</p>
             </motion.a>
           ))}
         </div>
@@ -105,21 +105,21 @@ export default function HomePage() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: 0.2 }}
-        className="py-16 bg-black text-center"
+        className="py-12 sm:py-16 bg-black text-center px-4"
       >
-        <h2 className="text-3xl font-bold mb-4 text-purple-400">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-purple-400">
           Ready to Change Your Life?
         </h2>
-        <p className="text-gray-400 mb-6">
-          “Because fitness should be free for all.”
+        <p className="text-gray-400 mb-6 text-sm sm:text-base">
+          "Because fitness should be free for all."
         </p>
         <motion.a
           href="/guide"
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-purple-500 hover:bg-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition"
+          className="bg-purple-500 hover:bg-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition inline-block"
         >
-          Let’s Begin
+          Let's Begin
         </motion.a>
       </motion.section>
     </main>

@@ -319,12 +319,12 @@ export default function NutritionPage() {
   return (
   <div className="min-h-screen bg-gradient-to-br from-gray-950 to-gray-900 p-6 pb-40 text-white">
       {/* Intro */}
-      <div className="max-w-4xl mx-auto text-center mb-12">
+      <div className="max-w-4xl mx-auto text-center mb-12 px-4">
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-4xl font-extrabold text-purple-400 mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-purple-400 mb-4"
         >
           Welcome to Your Nutrition Guide 🌿
         </motion.h1>
@@ -332,10 +332,10 @@ export default function NutritionPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.7 }}
-          className="text-purple-200 text-lg"
+          className="text-purple-200 text-base sm:text-lg"
         >
-          Discover the best high-protein foods to support your fitness and health goals.<br />
-          Scroll down to explore nutritious options, and tell us your basic details so we can help craft a diet plan for you!
+          Discover the best high-protein foods to support your fitness and health goals.<br className="hidden sm:block" />
+          <span className="sm:hidden"> </span>Scroll down to explore nutritious options, and tell us your basic details so we can help craft a diet plan for you!
         </motion.p>
       </div>
 
@@ -384,16 +384,16 @@ export default function NutritionPage() {
 
       {/* Diet Modal */}
       {showDiet && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center px-4">
-          <div className="relative max-w-2xl w-full bg-gray-950 p-6 rounded-2xl shadow-2xl border-2 border-purple-700 text-white">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center px-4 py-4">
+          <div className="relative max-w-2xl w-full bg-gray-950 p-4 sm:p-6 rounded-2xl shadow-2xl border-2 border-purple-700 text-white max-h-[90vh] flex flex-col">
             <button
-              className="absolute top-2 right-2 text-red-400 text-2xl font-bold hover:text-red-600 transition"
+              className="absolute top-2 right-2 text-red-400 text-2xl font-bold hover:text-red-600 transition z-10"
               onClick={() => setShowDiet(false)}
               aria-label="Close"
             >
               &times;
             </button>
-            <h2 className="text-2xl font-bold text-purple-300 mb-4 text-center">
+            <h2 className="text-xl sm:text-2xl font-bold text-purple-300 mb-4 text-center pr-8">
               Your Personalized Diet Plan 🍽️
             </h2>
 
@@ -402,7 +402,7 @@ export default function NutritionPage() {
                 <div className="w-12 h-12 border-4 border-purple-400 border-dashed rounded-full animate-spin"></div>
               </div>
             ) : (
-              <div className="whitespace-pre-wrap text-purple-200 max-h-[70vh] overflow-y-auto">
+              <div className="whitespace-pre-wrap text-sm sm:text-base text-purple-200 overflow-y-auto flex-1">
                 {diet}
               </div>
             )}
@@ -414,7 +414,7 @@ export default function NutritionPage() {
       <div className="fixed bottom-0 left-0 w-full z-40 flex justify-center">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col sm:flex-row gap-3 items-center justify-between max-w-4xl w-full mx-auto bg-gray-950/90 backdrop-blur-md border-t-2 border-purple-700 rounded-t-2xl shadow-2xl px-4 py-2"
+          className="flex flex-col sm:flex-row gap-3 items-center justify-between max-w-4xl w-full mx-auto bg-gray-950/90 backdrop-blur-md border-t-2 border-purple-700 rounded-t-2xl shadow-2xl px-3 sm:px-4 py-3 sm:py-2"
         >
           <div className="flex gap-3 flex-wrap sm:flex-nowrap w-full sm:w-auto">
             <input

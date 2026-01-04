@@ -34,28 +34,28 @@ const guideSections = [
 
 export default function InfoPage() {
   return (
-    <main className="min-h-screen bg-gray-950 text-white px-4 py-10 flex flex-col items-center">
+    <main className="min-h-screen bg-gray-950 text-white px-4 sm:px-6 py-10 flex flex-col items-center">
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="text-4xl md:text-5xl font-extrabold mb-12 text-purple-400 text-center drop-shadow-lg"
+        className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-8 sm:mb-12 text-purple-400 text-center drop-shadow-lg"
       >
         Fitness Guide
       </motion.h1>
 
-      <div className="grid gap-8 md:grid-cols-2 max-w-4xl w-full">
+      <div className="grid gap-6 sm:gap-8 md:grid-cols-2 max-w-4xl w-full">
         {guideSections.map((section, idx) => (
           <motion.div
             key={section.title}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 + idx * 0.12, duration: 0.6 }}
-            className="bg-gray-900 rounded-2xl p-8 shadow-xl border-2 border-purple-700 flex flex-col items-center text-center hover:border-purple-400 hover:shadow-purple-400/30 transition"
+            className="bg-gray-900 rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-purple-700 flex flex-col items-center text-center hover:border-purple-400 hover:shadow-purple-400/30 transition"
           >
-            <div className="text-5xl mb-4">{section.icon}</div>
-            <h2 className="text-2xl font-bold text-purple-300 mb-3">{section.title}</h2>
-            <p className="text-gray-300 text-base leading-relaxed">{section.desc}</p>
+            <div className="text-4xl sm:text-5xl mb-4">{section.icon}</div>
+            <h2 className="text-xl sm:text-2xl font-bold text-purple-300 mb-3">{section.title}</h2>
+            <p className="text-gray-300 text-sm sm:text-base leading-relaxed">{section.desc}</p>
           </motion.div>
         ))}
       </div>
